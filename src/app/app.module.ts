@@ -22,6 +22,7 @@ import { ReactiveFormsModule} from '@angular/forms'
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import {CarrinhoService} from './carrinho.service'
+import {FormsModule} from '@angular/forms';
 
 registerLocaleData(localePt);
 
@@ -38,12 +39,14 @@ registerLocaleData(localePt);
     OndeFicaComponent,
     OrdemCompraSucessoComponent,
     OrdemCompraComponent
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-Br'}, CarrinhoService],
   bootstrap: [AppComponent]

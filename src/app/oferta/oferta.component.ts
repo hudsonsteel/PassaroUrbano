@@ -22,13 +22,13 @@ export class OfertaComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-
-
-    this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
+    this.route.params.subscribe((retorno: any) =>
+    {
+      this.ofertasService.getOfertaPorId(retorno.id)
       .then((oferta: Oferta) => {
         this.oferta = oferta
-        //console.log(this.oferta)
       })
+    })
   }
 
 

@@ -15,13 +15,14 @@ import { Oferta } from '../shared/oferta.model'
   selector: 'app-topo',
   templateUrl: './topo.component.html',
   styleUrls: ['./topo.component.css'],
-  providers: [ OfertasService ]
+  providers: [OfertasService]
 })
 export class TopoComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>
   public ofertas2: Oferta[]
   private subjectPesquisa: Subject<string> = new Subject<string>()
+  private campoInput: string 
 
   constructor(private ofertasService: OfertasService) { }
 
@@ -30,9 +31,7 @@ export class TopoComponent implements OnInit {
       .debounceTime(1000) //executa a ação do switchMap após 1 segundo
       .distinctUntilChanged() //para fazer pesquisas distintas
       .switchMap((termo: string) => {
-        console.log('requisição http para api')
-
-        if(termo.trim() === ''){
+        if (termo.trim() === '') {
           //retornar um observable de array de ofertas vazio
           return Observable.of<Oferta[]>([])
         }
@@ -45,14 +44,18 @@ export class TopoComponent implements OnInit {
       })
 
     this.ofertas.subscribe((ofertas: Oferta[]) => {
-      console.log(ofertas)
       this.ofertas2 = ofertas
     })
   }
 
-  public pesquisa(termoDaBusca: string): void {
-    console.log('keyup caracter: ', termoDaBusca)
-    this.subjectPesquisa.next(termoDaBusca)
+  public pesquisa(): void {
+    console.log(this.campoInput)
+    this.subjectPesquisa.next(this.campoInput)
+  }
+
+  public LimparCampoPesquisa(): void {
+    this.campoInput = ''
+    this.ofertas2 = [] 
   }
 
 }
