@@ -24,6 +24,9 @@ import localePt from '@angular/common/locales/pt';
 import {CarrinhoService} from './carrinho.service'
 import {FormsModule} from '@angular/forms';
 
+import {DescricaoReduzida} from './util/descricao-reduzida.pipe'
+
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -38,7 +41,8 @@ registerLocaleData(localePt);
     ComoUsarComponent,
     OndeFicaComponent,
     OrdemCompraSucessoComponent,
-    OrdemCompraComponent
+    OrdemCompraComponent,
+    DescricaoReduzida
 
   ],
   imports: [

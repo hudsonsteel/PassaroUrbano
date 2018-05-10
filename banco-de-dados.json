@@ -206,6 +206,13 @@
       "complemento": "Minha casa",
       "formaPagamento": "dinheiro",
       "id": 3
+    },
+    {
+      "endereco": "Av Ayrton",
+      "numero": "30",
+      "complemento": "teste",
+      "formaPagamento": "dinheiro",
+      "id": 4
     }
   ]
 }

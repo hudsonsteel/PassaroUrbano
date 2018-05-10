@@ -10,7 +10,6 @@ import 'rxjs/add/observable/of'
 
 import { OfertasService } from '../ofertas.service'
 import { Oferta } from '../shared/oferta.model'
-
 @Component({
   selector: 'app-topo',
   templateUrl: './topo.component.html',
@@ -22,7 +21,7 @@ export class TopoComponent implements OnInit {
   public ofertas: Observable<Oferta[]>
   public ofertas2: Oferta[]
   private subjectPesquisa: Subject<string> = new Subject<string>()
-  private campoInput: string 
+  public campoInput: string 
 
   constructor(private ofertasService: OfertasService) { }
 

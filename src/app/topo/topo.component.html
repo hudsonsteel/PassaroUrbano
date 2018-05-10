@@ -11,7 +11,7 @@
           <input [(ngModel)]="campoInput" #termoBusca="ngModel" type="text" id="teste" class="form-control" placeholder="Pesquise por ofertas..."  (keyup)="pesquisa()"/>
           <ul class="list-group" style="position: absolute">
             <li class="list-group-item" *ngFor="let oferta of ofertas2">
-              <button class="btn btn-link" type="button" (click)="LimparCampoPesquisa()" [routerLink]="['/oferta',oferta.id]">{{ oferta.titulo }}</button>
+              <button class="btn btn-link" type="button" (click)="LimparCampoPesquisa()" [routerLink]="['/oferta',oferta.id]">{{ oferta.titulo | DescricaoReduzida:15 }}</button>
             </li>
           </ul>
         </div>
